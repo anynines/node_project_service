@@ -35,7 +35,7 @@ router.post('/create_table', function(req, res) {
 
 router.post('/project', function(req, res) {
   var complete_projectname = PREFIX + req.body.projectname;
-  var sql_query = 'INSERT INTO projects (id, name) VALUES ((SELECT max(id)+1 FROM projects) ,\'' + complete_projectname + '\');'
+  var sql_query = 'INSERT INTO projects (id, name) VALUES (coalesce((SELECT max(id)+1 FROM projects), 0) ,\'' + complete_projectname + '\');'
 
   console.log(sql_query);
 
