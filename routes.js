@@ -1,10 +1,10 @@
-var express = require('express');
-var router = express.Router();
-var pg = require('pg');
+const express = require('express');
+const router = express.Router();
+const pg = require('pg');
 
-var PREFIX = "proj_";
+const PREFIX = "proj_";
 
-var connection = new pg.Client({
+const connection = new pg.Client({
   user: 'root',
   database: 'example_app_project_service',
   password: '',
