@@ -47,7 +47,17 @@ router.post('/project', function(req, res) {
       res.status(200).json({success: true, msg: 'project added. id: ' + rows.insertId + ', name: ' + complete_projectname});
     };
   });
+});
 
+router.get('/project', function(req, res){
+  connection.query('SELECT * FROM projects', function(err, result, fields){
+    if(err){
+      console.log(err);
+      res.status(500).json({success: false, msg: 'could not get projects'});
+    } else {
+      res.status(200).json(result.rows);
+    }
+  });
 });
 
 module.exports = router;
