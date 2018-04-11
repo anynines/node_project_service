@@ -44,7 +44,7 @@ router.post('/project', function(req, res) {
       console.log(err);
       res.status(500).json({success: false, msg: 'could not add project'});
     } else {
-      res.status(200).json({success: true, msg: 'project added. id: ' + rows.insertId + ', name: ' + complete_projectname});
+      res.status(200).json({success: true, msg: 'project added'});
     };
   });
 });
